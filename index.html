@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script type="module" defer>
+        // écriture du programme
+        // Récuperation de l'expression à calculer
+        let expression = document.getElementById("formula");
+        //Récupération du button de lancement du calcul
+        let eltBtnCalcul = document.getElementById("calc");
+        //Récupération de la zone d'affichage du résultat
+        let resultatDiv = document.getElementById("result");
+
+        //Implémentation des évènements au click du button
+        eltBtnCalcul.addEventListener("click", function () {
+            let resultat = eval(expression.value);
+            console.log(resultat);
+            resultatDiv.innerHTML = resultat;
+        });
+    </script>
+</head>
+<body>
+    <input type="text" size="50" id="formula" name="formula">
+    <button id="calc">Calc</button>
+    <div id="result"></div>
+</body>
+</html>
