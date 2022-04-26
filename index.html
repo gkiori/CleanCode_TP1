@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="">
     <script type="module" defer>
-        // écriture du programme
-        // Récuperation de l'expression à calculer
-        let expression = document.getElementById("formula");
-        //Récupération du button de lancement du calcul
-        let eltBtnCalcul = document.getElementById("calc");
-        //Récupération de la zone d'affichage du résultat
-        let resultatDiv = document.getElementById("result");
+        
+        //code lancé à l'initialisation de la fenêtre
+        //Attache la méthode calculer au clic sur le bouton
+        window.onload = function () 
+        {
+        var eltBtnReset = document.getElementById("calc");
+        eltBtnReset.addEventListener("click",calculer)
+        ;}
 
-        //Implémentation des évènements au click du button
-        eltBtnCalcul.addEventListener("click", function () {
-            let resultat = eval(expression.value);
-            console.log(resultat);
-            resultatDiv.innerHTML = resultat;
-        });
+        //Fonction permettant de calculer le résulat de la formule renséigné dans le champs formula
+        //Puis affiche le résultat dans la div result
+        function calculer(){
+            var calcul = document.getElementById("formula")
+            var result = eval(calcul.value) 
+            var eltResult = document.getElementById("result")       
+            eltResult.innerHTML=result;
+        }
     </script>
 </head>
 <body>
